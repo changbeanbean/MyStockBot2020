@@ -11,7 +11,7 @@ Authdb='MyStockBot2020'
 
 ##### 資料庫連接 #####
 def constructor():
-    client = pymongo.MongoClient("mongodb://changbeanbean:Yabupakaw0118@cluster0-shard-00-00.czyyh.mongodb.net:27017,cluster0-shard-00-01.czyyh.mongodb.net:27017,cluster0-shard-00-02.czyyh.mongodb.net:27017/MyStockBot2020?ssl=true&replicaSet=atlas-vrfpp9-shard-0&authSource=admin&retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb://changbeanbean:Yabupakaw@0118@cluster0-shard-00-00.czyyh.mongodb.net:27017,cluster0-shard-00-01.czyyh.mongodb.net:27017,cluster0-shard-00-02.czyyh.mongodb.net:27017/MyStockBot2020?ssl=true&replicaSet=atlas-vrfpp9-shard-0&authSource=admin&retryWrites=true&w=majority")
     db = client[Authdb]
     return db
    
