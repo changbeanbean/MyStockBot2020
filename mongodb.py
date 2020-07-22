@@ -11,14 +11,14 @@ Authdb='MyStockBot2020'
 
 ##### 資料庫連接 #####
 def constructor():
-    client = pymongo.MongoClient("mongodb://changbeanbean@gmail.com:Yabupakaw@0118@cluster0-shard-00-00.czyyh.mongodb.net:27017,cluster0-shard-00-01.czyyh.mongodb.net:27017,cluster0-shard-00-02.czyyh.mongodb.net:27017/MyStockBot2020?ssl=true&replicaSet=atlas-vrfpp9-shard-0&authSource=admin&retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb://changbeanbean:Yabupakaw%2A0118@cluster0-shard-00-00.czyyh.mongodb.net:27017,cluster0-shard-00-01.czyyh.mongodb.net:27017,cluster0-shard-00-02.czyyh.mongodb.net:27017/MyStockBot2020?ssl=true&replicaSet=atlas-vrfpp9-shard-0&authSource=admin&retryWrites=true&w=majority")
     db = client[Authdb]
     return db
    
 #----------------------------儲存使用者的股票--------------------------
 def write_user_stock_fountion(stock, bs, price):  
     db=constructor()
-    collect = db['changbeanbean']
+    collect = db['StockPrice']
     collect.insert({"stock": stock,
                     "data": 'care_stock',
                     "bs": bs,
@@ -29,13 +29,13 @@ def write_user_stock_fountion(stock, bs, price):
 #----------------------------殺掉使用者的股票--------------------------
 def delete_user_stock_fountion(stock):  
     db=constructor()
-    collect = db['changbeanbean']
+    collect = db['StockPrice']
     collect.remove({"stock": stock})
     
 #----------------------------秀出使用者的股票--------------------------
 def show_user_stock_fountion():  
     db=constructor()
-    collect = db['changbeanbean']
+    collect = db['StockPrice']
     cel=list(collect.find({"data": 'care_stock'}))
 
     return cel
